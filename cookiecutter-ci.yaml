@@ -1,4 +1,4 @@
 default_context:
   component_id: "pet-store-client"
-  swagger_path: "https://petstore.swagger.io/v2/swagger.json",
-  base_package: "uk.gov.hmcts.petstore.client",
+  swagger_path: "https://petstore.swagger.io/v2/swagger.json"
+  base_package: "uk.gov.hmcts.petstore.client"
