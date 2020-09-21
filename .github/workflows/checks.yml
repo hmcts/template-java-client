@@ -18,7 +18,7 @@ jobs:
         with: 
           java-version: 1.8
       - run: sudo apt-get install cookiecutter
-      - run: cookiecutter ../template-java-client-library/ --no-input --config-file ../template-java-client-library/cookiecutter-ci.yaml
+      - run: cookiecutter ../template-java-client/ --no-input --config-file ../template-java-client/cookiecutter-ci.yaml
       - run: yarn --version
       - name: Run CI checks
         working-directory: ./pet-store-client
