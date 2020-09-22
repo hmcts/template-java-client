@@ -65,13 +65,13 @@ publishing {
             artifact sourcesJar
             artifact javadocJar
             groupId project.group
-            artifactId '{{cookiecutter.component_id}}'
+            artifactId '{{cookiecutter.artifact_id}}'
             version project.version
 
             pom.withXml {
                 def root = asNode()
                 root.appendNode('description', '{{cookiecutter.description}}')
-                root.appendNode('name', '{{cookiecutter.component_id}}')
+                root.appendNode('name', '{{cookiecutter.artifact_id}}')
                 root.appendNode('url', gitRepo)
                 root.children().last() + pomConfig
             }
@@ -86,7 +86,7 @@ bintray {
     publish = true
     pkg {
         repo = 'hmcts-maven'
-        name = '{{cookiecutter.component_id}}'
+        name = '{{cookiecutter.artifact_id}}'
         userOrg = 'hmcts'
         licenses = ['MIT']
         vcsUrl = gitRepo

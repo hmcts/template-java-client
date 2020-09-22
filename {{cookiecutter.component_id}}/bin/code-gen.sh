@@ -9,7 +9,7 @@ java -jar /tmp/openapi-generator-cli.jar generate \
 --model-package {{cookiecutter.model_package}} \
 --invoker-package {{cookiecutter.invoker_package}} \
 --group-id {{cookiecutter.group_id}} \
---artifact-id {{cookiecutter.component_id}} \
+--artifact-id {{cookiecutter.artifact_id}} \
 --artifact-version {{cookiecutter.artifact_version}} \
 -g spring -p java8=true --library spring-cloud \
 -o .

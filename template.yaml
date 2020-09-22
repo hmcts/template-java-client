@@ -21,7 +21,7 @@ spec:
       component_id:
         title: Component name
         type: string
-        description: Name of the component, e.g. idam-java-client. This will be used as artifact id.
+        description: Name of the component, e.g. idam-java-client. idam-client will be artifact id in this case.
       description:
         title: Description
         type: string
