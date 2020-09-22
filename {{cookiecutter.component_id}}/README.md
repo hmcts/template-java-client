@@ -5,11 +5,11 @@
 
 ## Code generation from Swagger
 
-This is generated using [openapi-generator](https://github.com/OpenAPITools/openapi-generator)
+Generated using [openapi-generator](https://github.com/OpenAPITools/openapi-generator)
 
-### swagger updates
+### API updates
 
-To update code with updated swagger, [run script](./bin/code-gen.sh)
+To update code with updated OpenAPI, [run script](./bin/code-gen.sh)
 
 ```
 ../bin/code-gen.sh

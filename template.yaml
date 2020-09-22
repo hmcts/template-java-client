@@ -15,21 +15,21 @@ spec:
   schema:
     required:
       - component_id
-      - swagger_path
+      - openapi_url
       - base_package
     properties:
       component_id:
         title: Component name
         type: string
-        description: Name of the component, e.g. idam-client-library. This will be used as artifact id.
+        description: Name of the component, e.g. idam-java-client. This will be used as artifact id.
       description:
         title: Description
         type: string
         description: Description of the library.
-      swagger_path:
-        title: Path to Swagger
+      openapi_url:
+        title: OpenAPI URL
         type: string
-        description: Path to Swagger
+        description: URL for OpenAPI spec, e.g. https://raw.githubusercontent.com/hmcts/reform-api-docs/master/docs/specs/bulk-scan-processor.json
       base_package:
         title: Base package for client
         type: string

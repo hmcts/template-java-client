@@ -1,6 +1,6 @@
 {
   "component_id": "",
-  "swagger_path": "",
+  "openapi_url": "",
   "base_package": "",
   "description": "Library description for {{ cookiecutter.component_id }}",
   "group_id": "uk.gov.hmcts.reform",

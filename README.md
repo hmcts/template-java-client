@@ -4,7 +4,7 @@ Backstage template for bootstrapping java client from open api specification.
 
 ## purpose
 
-The purpose of this template is to speed up the creation of java client from open api specification within HMCTS. It adds default configuration to be able to create and publish the artifact.
+Speedy creation of java client from OpenAPI specification within HMCTS. It adds default configuration to be able to create and publish the artifact.
 
 ## Maintenance / Updating template
 
