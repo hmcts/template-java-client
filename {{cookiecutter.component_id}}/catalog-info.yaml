@@ -3,7 +3,12 @@ kind: Component
 metadata:
   name: {{ cookiecutter.component_id }}
   description: {{ cookiecutter.description }}
+  annotations:
+    github.com/project-slug: '{{ cookiecutter.storePath }}'
+  tags:
+    - library
+    - {{ cookiecutter.component_id }}
 spec:
-  type: service
+  type: library
   lifecycle: experimental
   owner: {{ cookiecutter.owner }}
