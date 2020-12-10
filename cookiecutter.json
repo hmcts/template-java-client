@@ -9,5 +9,6 @@
   "model_package": "{{ cookiecutter.base_package }}.model",
   "invoker_package": "{{ cookiecutter.base_package }}.invoker",
   "artifact_version": "0.0.1-SNAPSHOT",
-  "owner": ""
+  "owner": "",
+  "storePath": ""
 }
