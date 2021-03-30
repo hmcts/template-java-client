@@ -17,7 +17,7 @@ jobs:
         uses: actions/setup-java@v1
         with: 
           java-version: 1.8
-      - run: snap install --edge cookiecutter
+      - run: sudo snap install --edge cookiecutter
       - run: cookiecutter ../template-java-client/ --no-input --config-file ../template-java-client/cookiecutter-ci.yaml
       - run: yarn --version
       - name: Run CI checks
