@@ -32,7 +32,7 @@ To build the project execute the following command:
 
 ### Publishing the library
 
-Library is published to [bintray](https://bintray.com/hmcts/hmcts-maven) using [github actions](.github/workflows/bintray-upload.yml)
+Library automatically published to [JitPack](https://jitpack.io) and can be found by searching for hmcts/{{REPO_NAME}}. The [Jitpack Build workflow](.github/workflows/jitpack_build.yml) will run when a tag has been created forcing JitPack to build the library so its readily available.
 
 ## License
 
