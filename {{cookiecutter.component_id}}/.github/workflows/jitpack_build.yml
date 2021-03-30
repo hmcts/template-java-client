@@ -4,7 +4,7 @@ on:
   push:
     tags: 
       - '*'
-
+{% raw -%}
 jobs:
   build:
 
@@ -33,3 +33,4 @@ jobs:
         echo "::endgroup::"
         
         if [[ $count -gt 3 ]]; then exit 1; fi
+{% endraw -%}
