@@ -1,3 +1,4 @@
+[![Download](https://jitpack.io/v/hmcts/{{ cookiecutter.component_id }}.svg) ](https://jitpack.io/#hmcts/{{ cookiecutter.component_id }})
 # {{ cookiecutter.component_id }}
 
 
