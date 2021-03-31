@@ -19,6 +19,7 @@ jobs:
           java-version: 11
       - run: sudo snap install --edge cookiecutter
       - run: sudo apt install openjdk-11-jdk wget
+      - run: which java; which wget
       - run: cookiecutter ../template-java-client/ --no-input --config-file ../template-java-client/cookiecutter-ci.yaml
       - run: yarn --version
       - name: Run CI checks
