@@ -1,3 +1,4 @@
+[![Download](https://jitpack.io/v/hmcts/{{ cookiecutter.component_id }}.svg) ](https://jitpack.io/#hmcts/{{ cookiecutter.component_id }})
 # {{ cookiecutter.component_id }}
 
 
@@ -32,7 +33,7 @@ To build the project execute the following command:
 
 ### Publishing the library
 
-Library is published to [bintray](https://bintray.com/hmcts/hmcts-maven) using [github actions](.github/workflows/bintray-upload.yml)
+Library automatically published to [JitPack](https://jitpack.io/#hmcts/{{cookiecutter.component_id}}), build logs and compiled libraries can be found by going to [hmcts/{{cookiecutter.component_id}}](https://jitpack.io/com/github/hmcts/{{cookiecutter.component_id}}). The [Jitpack Build workflow](.github/workflows/jitpack_build.yml) will run when a tag has been created forcing JitPack to build the library so its readily available.
 
 ## License
 

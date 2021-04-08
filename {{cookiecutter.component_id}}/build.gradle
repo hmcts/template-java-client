@@ -5,7 +5,6 @@
 plugins {
     id 'java'
     id 'maven-publish'
-    id "com.jfrog.bintray" version "1.8.5"
 }
 
 repositories {
@@ -75,23 +74,6 @@ publishing {
                 root.appendNode('url', gitRepo)
                 root.children().last() + pomConfig
             }
-        }
-    }
-}
-
-bintray {
-    user = System.getenv('BINTRAY_USER')
-    key = System.getenv('BINTRAY_KEY')
-    publications = ['Main']
-    publish = true
-    pkg {
-        repo = 'hmcts-maven'
-        name = '{{cookiecutter.artifact_id}}'
-        userOrg = 'hmcts'
-        licenses = ['MIT']
-        vcsUrl = gitRepo
-        version {
-            name = project.version
         }
     }
 }
