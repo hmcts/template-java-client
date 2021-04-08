@@ -29,7 +29,11 @@ dependencies {
 group = '{{cookiecutter.group_id}}'
 version = '{{cookiecutter.artifact_version}}'
 description = '{{cookiecutter.description}}'
-sourceCompatibility = '1.8'
+
+allprojects {
+  sourceCompatibility = '11'
+  targetCompatibility = '11'
+}
 
 def gitRepo = "https://github.com/hmcts/{{cookiecutter.component_id}}"
 
