@@ -1,36 +1,105 @@
-apiVersion: backstage.io/v1alpha1
+apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: java-client-library
-  title: Java client library template
-  description: Java client library, allows creating client given a swagger link.
+  name: template-java-client
+  title: Java HTTP client
+  description: Generates HTTP Java client library from OpenAPI spec
   tags:
-    - recommended
-    - swagger
-    - java-client
+    - java
 spec:
-  owner: Platform Engineering (#rpe)
-  templater: cookiecutter
-  type: library
-  schema:
-    required:
-      - component_id
-      - openapi_url
-      - base_package
-    properties:
-      component_id:
-        title: Component name
-        type: string
-        description: Name of the component, e.g. idam-java-client. idam-client will be artifact id in this case.
-      description:
-        title: Description
-        type: string
-        description: Description of the library.
-      openapi_url:
-        title: OpenAPI URL
-        type: string
-        description: URL for OpenAPI spec, e.g. https://raw.githubusercontent.com/hmcts/reform-api-docs/master/docs/specs/bulk-scan-processor.json
-      base_package:
-        title: Base package for client
-        type: string
-        description: base package for generated classes, example `uk.gov.hmcts.reform.idam.client`
+  owner: dts_platform_operations
+  type: service
+  parameters:
+    - title: Provide some simple information
+      required:
+        - product
+        - component
+        - owner
+        - group_id
+        - artifact_id
+        - slack_contact_channel
+      properties:
+        product:
+          title: Product
+          type: string
+          description: Product this component belongs to, normally the team name, e.g. cmc
+        component:
+          title: Component
+          type: string
+          description: Name of the component, e.g. java-client
+        group_id:
+          title: Group ID
+          type: string
+          default: uk.gov.hmcts
+        artifact_id:
+          title: Artifact ID
+          type: string
+          description: Should not include 'java', e.g. payments
+        slack_contact_channel:
+          title: Slack contact channel
+          type: string
+          description: Which channel (or user) to contact if there's any issues with this service.
+        description:
+          title: Description
+          type: string
+          description: Description of the client, a sensible default will be used if not specified.
+        github_admin_team:
+          title: GitHub admin team
+          type: string
+          description: Which GitHub team should have admin permissions, use the format hmcts/<team-id>?
+        owner:
+          title: Owner
+          type: string
+          description: Owner of the component
+          ui:field: OwnerPicker
+          ui:options:
+            allowedKinds:
+              - Group
+    - title: Choose a location
+      required:
+        - repoUrl
+      properties:
+        repoUrl:
+          title: Repository Location
+          type: string
+          ui:field: RepoUrlPicker
+          ui:options:
+            allowedHosts:
+              - github.com
+
+  steps:
+    - id: template
+      name: Fetch Skeleton + Template
+      action: fetch:template
+      input:
+        url: ./skeleton
+        values:
+          product: '${{ parameters.product }}'
+          component: '${{ parameters.component }}'
+          app_full_name: '${{ parameters.product }}-${{ parameters.component }}'
+          description: '${{ parameters.description }}'
+          owner: '${{ parameters.owner }}'
+          destination: '${{ parameters.repoUrl | parseRepoUrl }}'
+          slack_contact_channel: ${{ parameters.slack_contact_channel }}
+          group_id: '${{ parameters.group_id }}'
+          artifact_id: '${{ parameters.artifact_id }}'
+    - id: publish
+      name: Publish
+      action: publish:github
+      input:
+        allowedHosts: ['github.com']
+        repoUrl: ${{ parameters.repoUrl }}
+        access: ${{ parameters.github_admin_team }}
+        requireCodeOwnerReviews: true
+        repoVisibility: public
+        topics:
+          - ${{ parameters.product }}
+    - id: register
+      name: Register
+      action: catalog:register
+      input:
+        repoContentsUrl: '${{ steps.publish.output.repoContentsUrl }}'
+        catalogInfoPath: '/catalog-info.yaml'
+  output:
+    remoteUrl: '${{ steps.publish.output.remoteUrl }}'
+    entityRef: '${{ steps.register.output.entityRef }}'
