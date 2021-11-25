@@ -10,11 +10,10 @@ java -jar openapi-generator-cli.jar generate \
 --api-package $BASE_PACKAGE.api \
 --model-package $BASE_PACKAGE.model \
 --invoker-package $BASE_PACKAGE.invoker \
---group-id ${{ values.group_id }} \
---artifact-id ${{ values.artifact_id }} \
+--group-id ${{ values.group_id}} \
+--artifact-id ${{ values.artifact_id}} \
 --artifact-version 0.0.1 \
 -g spring --library spring-cloud \
 -o .
 
-# TODO think about migrating to gradle plugin, see https://github.com/OpenAPITools/openapi-generator/issues/9602
 rm -rf openapi-generator-cli.jar pom.xml
