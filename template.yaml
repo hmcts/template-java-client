@@ -3,7 +3,7 @@ kind: Template
 metadata:
   name: template-java-client
   title: Java HTTP client
-  description: Generates HTTP Java client library from OpenAPI spec
+  description: Generates an HTTP Java client library from an OpenAPI specification 
   tags:
     - java
 spec:
@@ -35,6 +35,9 @@ spec:
           title: Artifact ID
           type: string
           description: Should not include 'java', e.g. payments
+        openapi_url:
+          title: URL to OpenAPI spec
+          type: string
         slack_contact_channel:
           title: Slack contact channel
           type: string
@@ -83,6 +86,7 @@ spec:
           slack_contact_channel: ${{ parameters.slack_contact_channel }}
           group_id: '${{ parameters.group_id }}'
           artifact_id: '${{ parameters.artifact_id }}'
+          openapi_url: '${{ parameters.openapi_url }}'
     - id: publish
       name: Publish
       action: publish:github
