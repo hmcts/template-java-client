@@ -87,6 +87,11 @@ spec:
           group_id: '${{ parameters.group_id }}'
           artifact_id: '${{ parameters.artifact_id }}'
           openapi_url: '${{ parameters.openapi_url }}'
+    - id: process
+      name: Run script
+      action: hmcts:script
+      input:
+        scriptPath: bin/code-gen.sh
     - id: publish
       name: Publish
       action: publish:github
