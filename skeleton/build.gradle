@@ -20,7 +20,7 @@ dependencies {
     api 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.19.0'
     api 'org.openapitools:jackson-databind-nullable:0.2.6'
     api 'org.hibernate.validator:hibernate-validator:9.0.0.Final'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test:3.4.5'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test:3.5.0'
 }
 
 group = '${{ values.group_id}}'
