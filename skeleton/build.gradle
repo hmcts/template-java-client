@@ -18,7 +18,7 @@ dependencies {
     api 'org.springframework.cloud:spring-cloud-starter-openfeign:5.0.1'
     api 'org.springframework.cloud:spring-cloud-starter-oauth2:2.2.5.RELEASE'
     api 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.21.0'
-    api 'org.openapitools:jackson-databind-nullable:0.2.8'
+    api 'org.openapitools:jackson-databind-nullable:0.2.9'
     api 'org.hibernate.validator:hibernate-validator:9.1.0.Final'
     testImplementation 'org.springframework.boot:spring-boot-starter-test:4.0.0'
 }
